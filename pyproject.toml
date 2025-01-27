@@ -1,0 +1,15 @@
+[project]
+name = "gowiththeflow"
+description = "Implementation of GoWithTheFlow, original code at [a/https://github.com/Eyeline-Research/Go-with-the-Flow/](https://github.com/Eyeline-Research/Go-with-the-Flow/) and [a/https://github.com/RyannDaGreat/CommonSource/blob/master/noise_warp.py](https://github.com/RyannDaGreat/CommonSource/blob/master/noise_warp.py)"
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["torch", "numpy", "einops", "tqdm", "opencv-python", "rp"]
+
+[project.urls]
+Repository = "https://github.com/oxysoft/ComfyUI-gowiththeflow"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-gowiththeflow"
+Icon = ""
