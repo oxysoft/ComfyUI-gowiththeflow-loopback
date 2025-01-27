@@ -1,7 +1,6 @@
 torch
 numpy
 einops
-fire
 tqdm
 opencv-python
 rp
