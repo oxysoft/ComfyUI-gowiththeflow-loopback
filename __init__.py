@@ -79,7 +79,6 @@ class NoiseWarperNode:
 
         node_id = id(self)
         flow_h, flow_w, c = flow_image.shape
-        print(c, flow_h, flow_w)
         assert c == 3, "Flow image must have 3 channels (RGB)"
 
         # 1) If width=0 or height=0, use the flow image's shape
@@ -151,7 +150,6 @@ class NoiseWarperNode:
         #     mode="linear"
         # )[0]
 
-        print("RETURNING LATENT NOISE: ", latent.shape)
         # Wrap the latent in a dictionary with "samples" key to match SDXL format
         # Normalize noise from [-4,4] range to [0,1] range
         normalized_noise = (noise + abs(noise.min())) / (noise.max() - noise.min())
