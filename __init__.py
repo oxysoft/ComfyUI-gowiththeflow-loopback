@@ -62,8 +62,12 @@ class NoiseWarperNode:
     CATEGORY = "latent"
     
     @classmethod
-    def IS_CHANGED(flow_image, width, height, noise_channels, scale_factor, noise_scale):
-        return float("NaN")
+    def IS_CHANGED(cls, **kwargs):
+        #always update
+        import hashlib
+        import time
+        m = hashlib.sha256().update(str(time.time()).encode("utf-8"))
+        return m.digest().hex()
 
     def warp_noise(self, flow_image, width, height, noise_channels, scale_factor, noise_scale):
         # Ensure we only have a single flow image (squeeze batch dimension if needed)
@@ -103,6 +107,7 @@ class NoiseWarperNode:
                    or (warper.c != noise_channels)
 
         if do_reset:
+            print("[NoiseWarperNode] Initializing new NoiseWarper...")
             # Use a random seed each time we re-init
             random_seed = np.random.randint(0, (1 << 31) - 1)
             np.random.seed(random_seed & 0xFFFFFFFF)
