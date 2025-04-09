@@ -66,7 +66,8 @@ class NoiseWarperNode:
         #always update
         import hashlib
         import time
-        m = hashlib.sha256().update(str(time.time()).encode("utf-8"))
+        m = hashlib.sha256()
+        m.update(str(time.time()).encode("utf-8"))
         return m.digest().hex()
 
     def warp_noise(self, flow_image, width, height, noise_channels, scale_factor, noise_scale):
